@@ -1,4 +1,4 @@
-package org.SingleHpp;
+package org.singlehpp;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 import org.lambda.functions.Function1;
 
 import com.spun.util.io.FileUtils;
+import com.spun.util.logger.SimpleLogger;
 
 public class SingleHpp {
 
@@ -133,7 +134,6 @@ public class SingleHpp {
 		p.code = maskedMinusIncludes;
 		for (String key : unalterable.keySet()) {
 			p.code = p.code.replaceAll(key, unalterable.get(key));
-			System.out.println("returning :" + unalterable.get(key));
 		}
 		return p;
 	}
@@ -149,6 +149,7 @@ public class SingleHpp {
 
 	public static void create(String directory, String outputFile) throws IOException {
 		FileUtils.writeFile(new File(outputFile), createTextFor(directory));
+		SimpleLogger.event("Writing " + outputFile);
 	}
 
 	public static void main(String[] args) throws IOException {

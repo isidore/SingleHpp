@@ -1,4 +1,4 @@
-package org.SingleHpp;
+package org.singlehpp;
 
 import java.util.ArrayList;
 import java.util.Arrays;

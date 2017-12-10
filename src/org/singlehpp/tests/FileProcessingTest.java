@@ -1,4 +1,4 @@
-package org.SingleHpp.tests;
+package org.singlehpp.tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,10 +6,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
-import org.SingleHpp.Parts;
-import org.SingleHpp.SingleHpp;
 import org.approvaltests.Approvals;
 import org.junit.Test;
+import org.singlehpp.Parts;
+import org.singlehpp.SingleHpp;
 
 public class FileProcessingTest {
 
