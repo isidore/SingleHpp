@@ -1,0 +1,16 @@
+Sorted Files
+
+
+StringWriter.h
+ApprovalException.h
+CommandLauncher.h
+Macros.h
+FileUtils.h
+ApprovalNamer.h
+Reporter.h
+FileApprover.h
+FirstWorkingReporter.h
+DiffReporter.h
+Approvals.h
+ApprovalTests.h
+Catch2Approvals.h

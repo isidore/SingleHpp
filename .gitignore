@@ -1,0 +1,11 @@
+*.class
+/webPageImages
+/bin
+*.received.*
+# Package Files #
+.settings
+
+*.war
+*.ear
+test-output/
+.DS_Store

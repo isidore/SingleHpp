@@ -1,0 +1,2 @@
+#include   "..\myfile.h" : ..\myfile.h
+#include   <string> : string

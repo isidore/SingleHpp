@@ -1,0 +1,7 @@
+Unalterable[0] = // <SingleHpp unalterable>
+#ifdef APPROVALS_CATCH
+#define CATCH_CONFIG_MAIN
+#endif
+
+#include <Catch.hpp>
+// </SingleHpp>
