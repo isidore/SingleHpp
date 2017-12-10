@@ -153,6 +153,7 @@ public class SingleHpp {
 	}
 
 	public static void main(String[] args) throws IOException {
+		SimpleLogger.event("Starting...");
 		create(".", args[0]);
 	}
 }
