@@ -1,16 +1,28 @@
 Sorted Files
 
 
+SystemUtils.h
 StringWriter.h
-ApprovalException.h
-CommandLauncher.h
-Macros.h
 FileUtils.h
-ApprovalNamer.h
+CommandLauncher.h
+SystemLauncher.h
 Reporter.h
-FileApprover.h
+CommandReporter.h
+StringUtils.h
+DiffInfo.h
+DiffPrograms.h
+GenericDiffReporter.h
 FirstWorkingReporter.h
+WindowsReporters.h
+MacReporters.h
+LinuxReporters.h
 DiffReporter.h
+Macros.h
+ApprovalNamer.h
+ApprovalException.h
+FileApprover.h
 Approvals.h
-ApprovalTests.h
 Catch2Approvals.h
+CombinationApprovals.h
+GoogleTestApprovals.h
+OkraApprovals.h

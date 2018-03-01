@@ -3,6 +3,7 @@ package org.singlehpp.tests;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,13 +32,35 @@ public class FileProcessingTest {
 		String directory = "/Users/llewellyn/Github/ApprovalTests.cpp/ApprovalTests";
 		List<File> files = SingleHpp.getAllFiles(directory);
 		List<Parts> parts = SingleHpp.getParts(files);
+		verifySorted(parts);
 		Approvals.verifyAll("Sorted Files", parts, p -> p.fileName);
+	}
+
+	private void verifySorted(List<Parts> parts) {
+		for (int i = 0; i < parts.size(); i++) {
+			Parts p = parts.get(i);
+			for (int j = i + 1; j < parts.size(); j++) {
+				Parts latter = parts.get(j);
+				if (p.dependsOn(latter)) {
+					org.junit.Assert.fail(String.format("%sdepends on \n %s", p, latter));
+				}
+
+			}
+
+		}
 	}
 
 	@Test
 	public void testGetFileFromInclude() throws Exception {
 		String[] includes = { "#include   \"..\\myfile.h\"", "#include   <string>" };
 		Approvals.verifyAll("", includes, h -> h + " : " + Parts.getFileFromInclude(h));
+
+	}
+
+	@Test
+	public void t2() throws Exception {
+		String format = MessageFormat.format("foo", "thethu");
+		assertEquals("foo", format);
 
 	}
 
@@ -58,7 +81,7 @@ public class FileProcessingTest {
 
 	@Test
 	public void demo() throws Exception {
-		String outputFile = "/Users/llewellyn/Github/ApprovalTests.Cpp.StarterProject/lib/ApprovalTests.hpp";
+		String outputFile = "/Users/llewellyn/Github/ApprovalTests.Cpp.StarterProject/lib/ApprovalTests.from_eclipse.hpp";
 		SingleHpp.create("/Users/llewellyn/Github/ApprovalTests.cpp/ApprovalTests", outputFile);
 	}
 }

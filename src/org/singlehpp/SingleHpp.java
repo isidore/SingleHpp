@@ -22,6 +22,7 @@ public class SingleHpp {
 	public static List<File> getAllFiles(String directory) {
 		FileFilter filter = p -> p.getName().endsWith(".h") || p.getName().endsWith(".cpp");
 		File[] list = FileUtils.getRecursiveFileList(new File(directory), filter);
+		Arrays.sort(list);
 		return Arrays.asList(list);
 	}
 
@@ -49,12 +50,10 @@ public class SingleHpp {
 				if (lowest.dependsOn(next)) {
 					parts.remove(j);
 					parts.add(0, next);
-					i = 0;
+					i = -1;
 					break;
 				}
-
 			}
-
 		}
 		return parts;
 	}

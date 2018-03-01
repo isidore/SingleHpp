@@ -21,14 +21,19 @@ public class Parts implements Comparable<Parts> {
 	}
 
 	public boolean dependsOn(Parts that) {
-		List<String> includesNames = Arrays
-				.asList(this.includes.stream().map(i -> getFileFromInclude(i)).toArray(String[]::new));
+		List<String> includesNames = getIncludedFilenames();
 		return includesNames.contains(that.fileName);
+	}
+
+	public List<String> getIncludedFilenames() {
+		List<String> includesNames = Arrays.asList(this.includes.stream().map(i -> getFileFromInclude(i))
+				.filter(n -> n.endsWith(".h")).toArray(String[]::new));
+		return includesNames;
 	}
 
 	@Override
 	public String toString() {
-		return "Parts [" + fileName + "]";
+		return "Parts [" + fileName + "] : " + getIncludedFilenames() + "\n";
 	}
 
 	public static String getFileFromInclude(String include) {
